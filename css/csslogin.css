@@ -1,0 +1,91 @@
+body,
+html {
+  height: 100%;
+  margin: 0;
+  font-family: "Arial", sans-serif;
+  background: url("../images/hero-bg.jpg") no-repeat center center fixed;
+  background-size: cover;
+  color: white;
+}
+.login-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.login-form {
+  padding: 20px;
+  position: relative;
+  background: rgba(0, 0, 0, 0.7); /* Ajustar opacidad según sea necesario */
+  border-radius: 5px;
+  height: 350px;
+  width: 330px; /* O el ancho que prefieras */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Sombra para el formulario */
+}
+
+.input-group {
+  margin-bottom: 20px; /* Ajustar según sea necesario */
+  position: relative;
+}
+
+input[type="text"],
+input[type="password"] {
+  width: 296px;
+  padding: 15px;
+  border: 1px solid #333; /* Color del borde */
+  background: rgba(255, 255, 255, 0.2); /* Fondo ligeramente transparente */
+  border-radius: 5px;
+  color: white;
+}
+
+input::placeholder {
+  color: #aaa;
+}
+
+input:focus {
+  outline: none;
+  border-color: #00e676; /* Color de borde al enfocar */
+}
+
+button {
+  width: 100%;
+  padding: 15px;
+  border: none;
+  border-radius: 5px;
+  background-color: #00e676;
+  color: black;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 1em;
+  margin-top: 10px; /* Espacio entre el botón y el último input */
+}
+
+button:hover {
+  background-color: #00c853;
+}
+.links-container {
+  position: absolute; /* Posicionamiento absoluto */
+  bottom: 10px; /* Distancia desde la parte inferior del contenedor del formulario */
+  right: 10px; /* Distancia desde la parte derecha del contenedor del formulario */
+  display: flex;
+  gap: 10px; /* Espaciado entre los enlaces */
+}
+
+.forgot-password,
+.register-account {
+  color: #00e676;
+  text-decoration: none;
+  font-size: 0.9em;
+  transition: text-decoration 0.3s;
+}
+
+.forgot-password:hover,
+.register-account:hover {
+  text-decoration: underline;
+}
+.logo {
+  display: block;
+  margin: 0 auto 30px auto; /* Ajustar margen superior según sea necesario */
+  width: 120px; /* Ajustar según el tamaño de tu logo */
+}
