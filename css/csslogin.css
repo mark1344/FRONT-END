@@ -89,3 +89,23 @@ button:hover {
   margin: 0 auto 30px auto; /* Ajustar margen superior según sea necesario */
   width: 120px; /* Ajustar según el tamaño de tu logo */
 }
+
+/* Icono de casa */
+#home-icon {
+  position: fixed;
+  bottom: 30px;
+  right: 20px;
+  color: rgb(255, 255, 255);
+  cursor: pointer;
+  background-color: rgba(95, 95, 95, 0.281);
+  border-radius: 2em;
+  height: 50px;
+  width: 50px;
+  text-align: center;
+  line-height: 48px;
+  font-size: 22px;
+}
+
+#home-icon:hover {
+  background-color: #275c42b0;
+}
