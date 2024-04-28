@@ -5,10 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Inicio de sesión</title>
     <link rel="stylesheet" href="css/csslogin.css" />
-    <script
-      src="https://kit.fontawesome.com/5a8f54f204.js"
-      crossorigin="anonymous"
-    ></script>
   </head>
   <body>
     <div class="login">
@@ -21,6 +17,8 @@
             <div class="input-container">
               <i class="fas fa-user"></i>
               <input type="text" id="user" placeholder="Usuario" required />
+              <span class="error-message" id="user-error"></span>
+              <!-- Mensaje de error para el usuario -->
             </div>
             <div class="input-container">
               <i class="fas fa-lock"></i>
@@ -30,6 +28,8 @@
                 placeholder="Contraseña"
                 required
               />
+              <span class="error-message" id="password-error"></span>
+              <!-- Mensaje de error para la contraseña -->
             </div>
             <button type="button" onclick="validateLogin()">Ingresar</button>
           </form>
@@ -42,33 +42,10 @@
       id="home-icon"
       onclick="window.location.href = 'index.html'"
     ></i>
-
-    <script>
-      // Función para validar las credenciales de inicio de sesión
-      function validateLogin() {
-        var enteredUsername = document.getElementById("user").value.trim();
-        var enteredPassword = document.getElementById("password").value;
-
-        // Validar que ningún campo esté vacío
-        if (!enteredUsername || !enteredPassword) {
-          alert("Por favor, llena todos los campos.");
-          return; // Detener la función si hay campos vacíos
-        }
-
-        var storedUsername = localStorage.getItem("username");
-        var storedPassword = localStorage.getItem("password");
-
-        if (
-          enteredUsername === storedUsername &&
-          enteredPassword === storedPassword
-        ) {
-          alert("Inicio de sesión exitoso.");
-          // Redirigir al usuario a la página principal u otra página
-          window.location.href = "account.html";
-        } else {
-          alert("Nombre de usuario o contraseña incorrecta.");
-        }
-      }
-    </script>
+    <script src="js/login.js"></script>
+    <script
+      src="https://kit.fontawesome.com/5a8f54f204.js"
+      crossorigin="anonymous"
+    ></script>
   </body>
 </html>
