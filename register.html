@@ -5,10 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Registro de Usuario</title>
     <link rel="stylesheet" href="css/cssregister.css" />
-    <script
-      src="https://kit.fontawesome.com/5a8f54f204.js"
-      crossorigin="anonymous"
-    ></script>
   </head>
   <body>
     <div class="register">
@@ -21,6 +17,7 @@
             <div class="input-container">
               <i class="fas fa-user"></i>
               <input type="text" id="newUser" placeholder="Usuario" required />
+              <span class="error-message" id="user-error"></span>
             </div>
             <div class="input-container">
               <i class="fas fa-envelope"></i>
@@ -30,6 +27,7 @@
                 placeholder="Correo Electrónico"
                 required
               />
+              <span class="error-message" id="email-error"></span>
             </div>
             <div class="input-container">
               <i class="fas fa-lock"></i>
@@ -39,6 +37,7 @@
                 placeholder="Contraseña"
                 required
               />
+              <span class="error-message" id="password-error"></span>
             </div>
             <div class="input-container">
               <i class="fas fa-lock"></i>
@@ -48,6 +47,7 @@
                 placeholder="Confirmar Contraseña"
                 required
               />
+              <span class="error-message" id="confirm-password-error"></span>
             </div>
             <button type="button" onclick="registerUser()">Registrar</button>
           </form>
@@ -59,35 +59,10 @@
       id="home-icon"
       onclick="window.location.href = 'index.html'"
     ></i>
-
-    <script>
-      // Función para registrar el nuevo usuario
-      function registerUser() {
-        var username = document.getElementById("newUser").value.trim();
-        var email = document.getElementById("email").value.trim();
-        var password = document.getElementById("newPassword").value;
-        var confirmPassword = document.getElementById("confirmPassword").value;
-
-        // Validar que ningún campo esté vacío
-        if (!username || !email || !password || !confirmPassword) {
-          alert("Por favor, llena todos los campos.");
-          return; // Detener la función si hay campos vacíos
-        }
-
-        // Validar que las contraseñas coincidan
-        if (password !== confirmPassword) {
-          alert("Las contraseñas no coinciden. Por favor, inténtalo de nuevo.");
-          return; // Detener la función si las contraseñas no coinciden
-        }
-
-        // Si pasa las validaciones, guardar los datos y confirmar el registro
-        localStorage.setItem("username", username);
-        localStorage.setItem("email", email);
-        localStorage.setItem("password", password);
-
-        alert("Registro exitoso. Ahora puedes iniciar sesión.");
-        window.location.href = "login.html"; // Redirigir al usuario al login
-      }
-    </script>
+    <script src="js/register.js"></script>
+    <script
+      src="https://kit.fontawesome.com/5a8f54f204.js"
+      crossorigin="anonymous"
+    ></script>
   </body>
 </html>
