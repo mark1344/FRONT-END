@@ -2,6 +2,7 @@ function validateEmail(email) {
   var re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   return re.test(email);
 }
+
 // Función para registrar el nuevo usuario
 function registerUser() {
   var isValid = true;
@@ -55,10 +56,16 @@ function registerUser() {
     return;
   }
 
+  // Crear un objeto de usuario para almacenar en localStorage
+  var user = {
+    username: username,
+    email: email,
+    password: password,
+    role: "Visualizador", // Asignar rol de 'viewer' por defecto
+  };
+
   // Guardar datos y confirmar registro
-  localStorage.setItem("username", username);
-  localStorage.setItem("email", email);
-  localStorage.setItem("password", password);
+  localStorage.setItem(username, JSON.stringify(user)); // Clave basada en el nombre de usuario
 
   alert("Registro exitoso. Ahora puedes iniciar sesión.");
   window.location.href = "../login.html"; // Redirigir al usuario al login
