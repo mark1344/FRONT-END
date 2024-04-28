@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Inicio de sesion</title>
+    <title>Inicio de sesión</title>
     <link rel="stylesheet" href="css/csslogin.css" />
     <script
       src="https://kit.fontawesome.com/5a8f54f204.js"
@@ -17,7 +17,7 @@
           <div class="logo">
             <img src="images/logo.png" alt="Logo" />
           </div>
-          <form action="#" class="from-login">
+          <form action="#" class="form-login">
             <div class="input-container">
               <i class="fas fa-user"></i>
               <input type="text" id="user" placeholder="Usuario" required />
@@ -31,9 +31,9 @@
                 required
               />
             </div>
-            <button type="submit">Ingresar</button>
+            <button type="button" onclick="validateLogin()">Ingresar</button>
           </form>
-          <a href="#" class="recover-password">Recuperar contraseña</a>
+          <a href="register.html" class="recover-password">Registrarse</a>
         </div>
       </div>
     </div>
@@ -42,5 +42,33 @@
       id="home-icon"
       onclick="window.location.href = 'index.html'"
     ></i>
+
+    <script>
+      // Función para validar las credenciales de inicio de sesión
+      function validateLogin() {
+        var enteredUsername = document.getElementById("user").value.trim();
+        var enteredPassword = document.getElementById("password").value;
+
+        // Validar que ningún campo esté vacío
+        if (!enteredUsername || !enteredPassword) {
+          alert("Por favor, llena todos los campos.");
+          return; // Detener la función si hay campos vacíos
+        }
+
+        var storedUsername = localStorage.getItem("username");
+        var storedPassword = localStorage.getItem("password");
+
+        if (
+          enteredUsername === storedUsername &&
+          enteredPassword === storedPassword
+        ) {
+          alert("Inicio de sesión exitoso.");
+          // Redirigir al usuario a la página principal u otra página
+          window.location.href = "account.html";
+        } else {
+          alert("Nombre de usuario o contraseña incorrecta.");
+        }
+      }
+    </script>
   </body>
 </html>
