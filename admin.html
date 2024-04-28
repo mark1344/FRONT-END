@@ -6,8 +6,12 @@
     <title>Panel de Administrador</title>
   </head>
   <body>
-    <h1>Bienvenido al Panel de Administrador</h1>
-    <button onclick="window.location.href = 'index.html'">Cerrar sesión</button>
+    <!-- div "adminContent" Se oculta el contenido del panel de administrador hasta que se haya
+    iniciado sesión correctamente con el usuario y la contraseña admin. -->
+    <div id="adminContent" style="display: none">
+      <h1>Bienvenido al Panel de Administrador</h1>
+      <button onclick="logout()">Cerrar sesión</button>
+    </div>
     <script src="js/admin.js"></script>
   </body>
 </html>
