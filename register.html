@@ -3,27 +3,91 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Registro de usuarios</title>
+    <title>Registro de Usuario</title>
+    <link rel="stylesheet" href="css/cssregister.css" />
+    <script
+      src="https://kit.fontawesome.com/5a8f54f204.js"
+      crossorigin="anonymous"
+    ></script>
   </head>
   <body>
-    <div
-      style="
-        display: flex;
-        margin-top: 150px;
-        justify-content: center;
-        align-items: center;
-      "
-    >
-      <iframe
-        src="https://media.tenor.com/CyfOaSD1jYoAAAAd/kermit-is-bos.gif"
-        width="500px"
-        height="700px"
-        frameborder="0"
-        class="giphy-embed"
-        allowfullscreen
-        onmouseover="this.style.opacity = '0.8'; this.style.transform = 'scale(1.2)'"
-        onmouseout="this.style.opacity = '1'; this.style.transform = 'scale(1)'"
-      ></iframe>
+    <div class="register">
+      <div class="container">
+        <div class="content">
+          <div class="logo">
+            <img src="images/logo.png" alt="Logo" />
+          </div>
+          <form action="#" class="form-register">
+            <div class="input-container">
+              <i class="fas fa-user"></i>
+              <input type="text" id="newUser" placeholder="Usuario" required />
+            </div>
+            <div class="input-container">
+              <i class="fas fa-envelope"></i>
+              <input
+                type="email"
+                id="email"
+                placeholder="Correo Electrónico"
+                required
+              />
+            </div>
+            <div class="input-container">
+              <i class="fas fa-lock"></i>
+              <input
+                type="password"
+                id="newPassword"
+                placeholder="Contraseña"
+                required
+              />
+            </div>
+            <div class="input-container">
+              <i class="fas fa-lock"></i>
+              <input
+                type="password"
+                id="confirmPassword"
+                placeholder="Confirmar Contraseña"
+                required
+              />
+            </div>
+            <button type="button" onclick="registerUser()">Registrar</button>
+          </form>
+        </div>
+      </div>
     </div>
+    <i
+      class="fa-solid fa-house"
+      id="home-icon"
+      onclick="window.location.href = 'index.html'"
+    ></i>
+
+    <script>
+      // Función para registrar el nuevo usuario
+      function registerUser() {
+        var username = document.getElementById("newUser").value.trim();
+        var email = document.getElementById("email").value.trim();
+        var password = document.getElementById("newPassword").value;
+        var confirmPassword = document.getElementById("confirmPassword").value;
+
+        // Validar que ningún campo esté vacío
+        if (!username || !email || !password || !confirmPassword) {
+          alert("Por favor, llena todos los campos.");
+          return; // Detener la función si hay campos vacíos
+        }
+
+        // Validar que las contraseñas coincidan
+        if (password !== confirmPassword) {
+          alert("Las contraseñas no coinciden. Por favor, inténtalo de nuevo.");
+          return; // Detener la función si las contraseñas no coinciden
+        }
+
+        // Si pasa las validaciones, guardar los datos y confirmar el registro
+        localStorage.setItem("username", username);
+        localStorage.setItem("email", email);
+        localStorage.setItem("password", password);
+
+        alert("Registro exitoso. Ahora puedes iniciar sesión.");
+        window.location.href = "login.html"; // Redirigir al usuario al login
+      }
+    </script>
   </body>
 </html>
