@@ -96,3 +96,12 @@ button:hover {
 #home-icon:hover {
   background-color: #029631c0;
 }
+
+.error-message {
+  color: rgb(253, 107, 107);
+  font-size: 0.8em;
+}
+
+.input-container input.error {
+  border: 2px solid rgb(253, 107, 107);
+}
