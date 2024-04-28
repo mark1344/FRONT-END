@@ -52,17 +52,17 @@ input:focus {
 button {
   width: 350px;
   padding: 10px;
-  background-color: #01a43d;
-  color: white;
-  border: 1px solid transparent;
+  background-color: transparent;
+  color: #01a43d;
+  border: 1px solid #01a43d;
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s, color 0.3s;
 }
 button:hover {
-  background-color: transparent; /* Fondo transparente */
-  color: #01a43d; /* Cambiar el texto a verde para coincidir con el borde */
-  border: 1px solid #01a43d; /* Borde verde */
+  background-color: #01a43d; /* Fondo transparente */
+  color: white; /* Cambiar el texto a verde para coincidir con el borde */
+  border: 1px solid transparent; /* Borde verde */
 }
 .content {
   /* Nuevo estilo para el contenido */
