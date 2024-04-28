@@ -1,6 +1,16 @@
+// Código para inicializar el usuario administrador si no existe
+if (!localStorage.getItem("admin")) {
+  // Asegúrate de usar la clave "admin" aquí
+  const adminUser = {
+    username: "admin",
+    password: "adminpass",
+    role: "admin",
+  };
+  localStorage.setItem("admin", JSON.stringify(adminUser)); // Usar "admin" como clave
+}
+
 // Función para validar las credenciales de inicio de sesión
 function validateLogin() {
-  var isValid = true;
   var enteredUsername = document.getElementById("user").value.trim();
   var enteredPassword = document.getElementById("password").value;
   var usernameError = document.getElementById("user-error");
@@ -16,30 +26,38 @@ function validateLogin() {
   if (!enteredUsername) {
     usernameError.textContent = "Por favor, ingresa tu usuario.";
     document.getElementById("user").classList.add("error");
-    isValid = false;
+    return; // Detener la función si hay campos vacíos
   }
 
   if (!enteredPassword) {
     passwordError.textContent = "Por favor, ingresa tu contraseña.";
     document.getElementById("password").classList.add("error");
-    isValid = false;
-  }
-  // Solo continuar con la validación si todos los campos están llenos
-  if (!isValid) {
-    return;
+    return; // Detener la función si hay campos vacíos
   }
 
-  // Aquí iría la verificación con localStorage o la lógica de verificación
-  var storedUsername = localStorage.getItem("username");
-  var storedPassword = localStorage.getItem("password");
+  // Recuperar los datos del usuario desde localStorage
+  var userData = localStorage.getItem(enteredUsername);
+  var user = userData ? JSON.parse(userData) : null;
 
-  if (
-    enteredUsername === storedUsername &&
-    enteredPassword === storedPassword
-  ) {
-    alert("Inicio de sesión exitoso.");
-    // Redirigir al usuario a la página principal
-    window.location.href = "../account.html";
+  // Asegúrate de que la clave que usas aquí coincide con la clave que usaste al almacenar los datos
+  var adminData = localStorage.getItem("admin");
+  var admin = adminData ? JSON.parse(adminData) : null;
+
+  if (user && user.password === enteredPassword) {
+    alert(
+      "Inicio de sesión exitoso. Bienvenido, " +
+        user.username +
+        " (" +
+        user.role +
+        ")."
+    );
+    localStorage.setItem("currentUser", JSON.stringify(user)); // Guardar los datos del usuario actual
+    // Redirigir al usuario a la página adecuada según su rol
+    if (user.role === "admin") {
+      window.location.href = "../admin.html";
+    } else {
+      window.location.href = "../viewer.html";
+    }
   } else {
     usernameError.textContent = "Nombre de usuario o contraseña incorrecta.";
     document.getElementById("user").classList.add("error");
