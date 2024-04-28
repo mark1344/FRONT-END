@@ -1,0 +1,98 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif; /* Añade la fuente que prefieras */
+}
+.register {
+  height: 100vh;
+  width: 100%;
+  background-image: url("../images/hero-bg.jpg");
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.container {
+  width: 350px;
+  height: 350px;
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.logo img {
+  width: 50%;
+  display: block;
+  margin: 0 auto;
+}
+.from-login {
+  margin-top: 25px;
+}
+.input-container {
+  position: relative;
+  margin: 20px 0;
+}
+.input-container i {
+  position: absolute;
+  top: 10px;
+  left: 12px;
+  color: #222222;
+}
+.input-container input {
+  width: 300px;
+  padding: 11px 10px 10px 40px;
+  border-radius: 5px;
+  border: 1px solid #646464;
+}
+input:focus {
+  outline: none;
+  border-color: #00e676; /* Color de borde al enfocar */
+}
+
+button {
+  width: 350px;
+  padding: 10px;
+  background-color: transparent;
+  color: #01a43d;
+  border: 1px solid #01a43d;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+}
+button:hover {
+  background-color: #01a43d; /* Fondo transparente */
+  color: white; /* Cambiar el texto a verde para coincidir con el borde */
+  border: 1px solid transparent; /* Borde verde */
+}
+.content {
+  /* Nuevo estilo para el contenido */
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+.recover-password {
+  color: #fff;
+  text-align: right;
+  text-decoration: none;
+  margin-top: auto; /* Empuja el enlace hacia abajo */
+}
+
+/* Icono de casa */
+#home-icon {
+  position: fixed;
+  bottom: 30px;
+  right: 20px;
+  color: rgb(255, 255, 255);
+  cursor: pointer;
+  background-color: rgba(95, 95, 95, 0.281);
+  border-radius: 2em;
+  height: 50px;
+  width: 50px;
+  text-align: center;
+  line-height: 48px;
+  font-size: 22px;
+}
+
+#home-icon:hover {
+  background-color: #029631c0;
+}
