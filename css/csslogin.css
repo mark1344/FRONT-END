@@ -1,92 +1,61 @@
-
-body{
-    margin: 0%;
+body {
+  margin: 0;
+  font-family: Arial, sans-serif; /* Añade la fuente que prefieras */
 }
-.login{
-    height: 100vh;
-    width: 100%;
-    background-image: url(../images/login_fondo.png);
-    background-repeat: no-repeat;
-    background-position-x: center;
-    background-position-y: center;
-    background-size: 100% 100%;
-    text-align: -webkit-center;
+.login {
+  height: 100vh;
+  width: 100%;
+  background-image: url("../images/hero-bg.jpg");
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-.container{
-    padding: 3%;
-    height: 85%;
-    width: 80%;
-
+.container {
+  width: 360px;
+  height: 360px;
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
-.content{
-    margin: 20px;
-    height: 95%;
-    width: 45%;
-    background-color: rgba(0, 0, 0, 0.5);
-    border-radius: 3%;
-
-
+.logo img {
+  width: 50%;
+  display: block;
+  margin: 0 auto;
 }
-.content img{
-    width: 40%;
-    height: 40%;
-    margin-top: 10%;
+.input-container {
+  position: relative;
+  margin: 20px 0;
 }
-.content form{
-    padding: 10%;
-    
-    text-align: left;
+.input-container i {
+  position: absolute;
+  top: 10px;
+  left: 12px;
+  color: #646464;
 }
-.content form label{
-    color: #fff;
-    font-weight: 900;
-    display: block;
-    margin-top: 7%;
+.input-container input {
+  width: 300px;
+  padding: 11px 10px 10px 40px;
+  border-radius: 5px;
+  border: 1px solid #646464;
 }
-
-.content form input {
-    padding-left: 10%;
-    width: 90%;
-    height: 40px;
-    border-radius: 10px;
-    font-size:large;
+button {
+  width: 100%;
+  padding: 10px;
+  background-color: #01a43d;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
 }
-
-
-.content button{
-    padding: 15px 35px;
-    font-size: 15px;
-    border-radius: 5px;
-    background-color: transparent;
-    color: #01A43D;
-    border: solid 1px #01A43D;
-    cursor: pointer;
-    
+button:hover {
+  background-color: #029630;
 }
-
-.content button:hover{
-    background-color: #01A43D;
-    color: #fff;
-}
-.content p{
-    color: #fff;
-    text-align: end;
-    margin-right: 32px;
-    cursor: pointer;
-}
-.content a{
-    color: #fff;  
-    cursor: pointer;
-}
-.content .user{
-    background-image: url(../images/usuario.png);
-    background-size: 30px 30px;
-    background-repeat: no-repeat;
-    background-position: left center;
-}
-.content .password{
-    background-image: url(../images/bloquear.png);
-    background-size: 30px 30px;
-    background-repeat: no-repeat;
-    background-position: left center;
+.recover-password {
+  display: block;
+  text-align: right;
+  color: #fff;
+  margin-top: 15px;
 }
