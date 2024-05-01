@@ -4,7 +4,7 @@
  * ------------------------------------------------------------------- */
 
 (function ($) {
-  "use strict";
+  ("use strict");
 
   var cfg = {
       scrollDuration: 800, // smoothscroll duration
@@ -305,40 +305,29 @@
   /* Contact Form
    * ------------------------------------------------------ */
   var clContactForm = function () {
-    /* local validation */
     $("#contactForm").validate({
-      /* submit via ajax */
       submitHandler: function (form) {
         var sLoader = $(".submit-loader");
 
         $.ajax({
           type: "POST",
-          url: "inc/sendEmail.php",
+          url: "https://formsubmit.co/bb4aaacbbf6fca532a5757ebc0108492",
           data: $(form).serialize(),
           beforeSend: function () {
             sLoader.slideDown("slow");
           },
-          success: function (msg) {
-            // Message was sent
-            if (msg == "OK") {
-              sLoader.slideUp("slow");
-              $(".message-warning").fadeOut();
-              $("#contactForm").fadeOut();
-              $(".message-success").fadeIn();
-            }
-            // There was an error
-            else {
-              sLoader.slideUp("slow");
-              $(".message-warning").html(msg);
-              $(".message-warning").slideDown("slow");
-            }
+          success: function (data, textStatus, jqXHR) {
+            // Asumiendo que la redirección implica éxito
+            sLoader.slideUp("slow");
+            $(".message-warning").fadeOut();
+            $("#contactForm")[0].reset(); // Esto limpiará el formulario pero lo dejará visible
+            $(".message-success").fadeIn(); // Muestra el mensaje de éxito personalizado
           },
           error: function () {
             sLoader.slideUp("slow");
-            $(".message-warning").html(
-              "Algo ha ido mal. Por favor, inténtelo de nuevo."
-            );
-            $(".message-warning").slideDown("slow");
+            $(".message-warning")
+              .html("Algo ha ido mal. Por favor, inténtelo de nuevo.")
+              .slideDown("slow");
           },
         });
       },
