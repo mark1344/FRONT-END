@@ -68,5 +68,5 @@ function registerUser() {
   localStorage.setItem(username, JSON.stringify(user)); // Clave basada en el nombre de usuario
 
   alert("Registro exitoso. Ahora puedes iniciar sesión.");
-  window.location.href = "../login.html"; // Redirigir al usuario al login
+  window.location.href = "../FRONT-END/login.html"; // Redirigir al usuario al login
 }

@@ -54,9 +54,9 @@ function validateLogin() {
     localStorage.setItem("currentUser", JSON.stringify(user)); // Guardar los datos del usuario actual
     // Redirigir al usuario a la página adecuada según su rol
     if (user.role === "admin") {
-      window.location.href = "../admin.html";
+      window.location.href = "../FRONT-END/admin.html";
     } else {
-      window.location.href = "../viewer.html";
+      window.location.href = "../FRONT-END/viewer.html";
     }
   } else {
     usernameError.textContent = "Nombre de usuario o contraseña incorrecta.";

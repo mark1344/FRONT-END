@@ -25,7 +25,7 @@ window.onload = function () {
   } catch (error) {
     alert(error.message); // Mostrar mensaje de error
     setTimeout(function () {
-      window.location.href = "../login.html"; // Redirigir a login después de mostrar el alerta
+      window.location.href = "../FRONT-END/login.html"; // Redirigir a login después de mostrar el alerta
     }, 1); // Retraso para mejorar la legibilidad del mensaje
   }
 };
