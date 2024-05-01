@@ -9,56 +9,48 @@
   <body>
     <div id="adminContent">
       <h1>Bienvenido al Panel de Administrador</h1>
+      <!-- Aquí irían los componentes para agregar y listar usuarios -->
       <div id="userManagement">
         <h2>Gestión de Usuarios</h2>
-        <!-- Aquí irían los componentes para agregar y listar usuarios -->
-        <div id="userManagement">
-          <h2>Gestión de Usuarios</h2>
-          <button onclick="showCreateUserForm()">Agregar Usuario</button>
-          <div id="userForm" style="display: none">
-            <!-- Formulario para agregar o editar usuarios -->
-            <input type="hidden" id="isEditing" value="" />
-            <input type="text" id="username" placeholder="Nombre de usuario" />
-            <input type="email" id="email" placeholder="Correo electrónico" />
-            <input type="password" id="password" placeholder="Contraseña" />
-            <select id="role">
-              <option value="admin">Administrador</option>
-              <option value="viewer">Visualizador</option>
-            </select>
-            <button onclick="saveUser()">Guardar Usuario</button>
-            <button onclick="cancelEdit()" type="button">Cancelar</button>
-          </div>
-          <div id="userList">
-            <!-- Lista de usuarios -->
-          </div>
+        <button onclick="showCreateUserForm()">Agregar Usuario</button>
+        <div id="userForm" style="display: none">
+          <!-- Formulario para agregar o editar usuarios -->
+          <input type="hidden" id="isEditing" value="" />
+          <input type="text" id="username" placeholder="Nombre de usuario" />
+          <input type="email" id="email" placeholder="Correo electrónico" />
+          <input type="password" id="password" placeholder="Contraseña" />
+          <select id="role">
+            <option value="admin">Administrador</option>
+            <option value="viewer">Visualizador</option>
+          </select>
+          <button onclick="saveUser()">Guardar Usuario</button>
+          <button onclick="cancelEdit()" type="button">Cancelar</button>
+        </div>
+        <div id="userList">
+          <!-- Lista de usuarios -->
         </div>
       </div>
+      <!-- Aquí irían los componentes para gestionar contenido -->
       <div id="contentManagement">
         <h2>Gestión de Contenido</h2>
-        <!-- Aquí irían los componentes para gestionar contenido -->
-        <div id="contentManagement">
-          <h2>Gestión de Contenido</h2>
-          <button onclick="showCreateContentForm()">Agregar Contenido</button>
-          <div id="contentForm" style="display: none">
-            <!-- Formulario para agregar o editar contenido -->
-            <input type="hidden" id="contentId" value="" />
-            <input
-              type="text"
-              id="contentTitle"
-              placeholder="Título del Contenido"
-            />
-            <textarea
-              id="contentDescription"
-              placeholder="Descripción"
-            ></textarea>
-            <button onclick="saveContent()">Guardar Contenido</button>
-            <button onclick="cancelContentEdit()" type="button">
-              Cancelar
-            </button>
-          </div>
-          <div id="contentList">
-            <!-- Lista de contenido -->
-          </div>
+        <button onclick="showCreateContentForm()">Agregar Contenido</button>
+        <div id="contentForm" style="display: none">
+          <!-- Formulario para agregar o editar contenido -->
+          <input type="hidden" id="contentId" value="" />
+          <input
+            type="text"
+            id="contentTitle"
+            placeholder="Título del Contenido"
+          />
+          <textarea
+            id="contentDescription"
+            placeholder="Descripción"
+          ></textarea>
+          <button onclick="saveContent()">Guardar Contenido</button>
+          <button onclick="cancelContentEdit()" type="button">Cancelar</button>
+        </div>
+        <div id="contentList">
+          <!-- Lista de contenido -->
         </div>
       </div>
       <button onclick="logout()">Cerrar sesión</button>
