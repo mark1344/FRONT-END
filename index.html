@@ -309,7 +309,7 @@
           <form
             name="contactForm"
             id="contactForm"
-            method="post"
+            method="POST"
             action=""
             novalidate="novalidate"
           >
@@ -372,6 +372,9 @@
                   </div>
                 </div>
               </div>
+              <input type="hidden" name="_next" value="" > 
+              <input type="hidden" name="_captcha" value="false">
+              <input type="hidden" name="_subject" value="Nuevo mensaje del formulario de contacto!">    
             </fieldset>
           </form>
 
@@ -381,7 +384,7 @@
           </div>
 
           <!-- contact-success -->
-          <div class="message-success">
+          <div class="message-success">    
             Su mensaje ha sido enviado, ¡gracias!<br />
           </div>
         </div>
