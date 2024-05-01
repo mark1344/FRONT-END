@@ -1,0 +1,64 @@
+/* Estilos básicos para el cuerpo del documento */
+body {
+  font-family: "Arial", sans-serif;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+  background: #f4f4f4;
+  color: #333;
+}
+
+/* Estilos para encabezados */
+h1,
+h2 {
+  color: #555;
+}
+
+h1 {
+  margin-top: 0;
+  font-size: 24px;
+}
+
+h2 {
+  font-size: 20px;
+}
+
+/* Estilos para los botones */
+button {
+  background-color: #5cdb95;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  margin: 10px 0;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #379683;
+}
+
+/* Contenedor principal para cada sección */
+div#adminContent,
+div#viewerContent {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilo para los contenedores de sección */
+div#userManagement,
+div#contentManagement,
+div#reports,
+div#settings,
+div#viewInformation,
+div#basicReports {
+  margin-bottom: 20px;
+  padding: 20px;
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}

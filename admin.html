@@ -1,17 +1,77 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Panel de Administrador</title>
+    <link rel="stylesheet" href="css/admin.css" />
   </head>
   <body>
-    <!-- div "adminContent" Se oculta el contenido del panel de administrador hasta que se haya
-    iniciado sesión correctamente con el usuario y la contraseña admin. -->
-    <div id="adminContent" style="display: none">
+    <div id="adminContent">
       <h1>Bienvenido al Panel de Administrador</h1>
+      <div id="userManagement">
+        <h2>Gestión de Usuarios</h2>
+        <!-- Aquí irían los componentes para agregar y listar usuarios -->
+        <div id="userManagement">
+          <h2>Gestión de Usuarios</h2>
+          <button onclick="showCreateUserForm()">Agregar Usuario</button>
+          <div id="userForm" style="display: none">
+            <!-- Formulario para agregar o editar usuarios -->
+            <input type="hidden" id="isEditing" value="" />
+            <input type="text" id="username" placeholder="Nombre de usuario" />
+            <input type="email" id="email" placeholder="Correo electrónico" />
+            <input type="password" id="password" placeholder="Contraseña" />
+            <select id="role">
+              <option value="admin">Administrador</option>
+              <option value="viewer">Visualizador</option>
+            </select>
+            <button onclick="saveUser()">Guardar Usuario</button>
+            <button onclick="cancelEdit()" type="button">Cancelar</button>
+          </div>
+          <div id="userList">
+            <!-- Lista de usuarios -->
+          </div>
+        </div>
+      </div>
+      <div id="contentManagement">
+        <h2>Gestión de Contenido</h2>
+        <!-- Aquí irían los componentes para gestionar contenido -->
+        <div id="contentManagement">
+          <h2>Gestión de Contenido</h2>
+          <button onclick="showCreateContentForm()">Agregar Contenido</button>
+          <div id="contentForm" style="display: none">
+            <!-- Formulario para agregar o editar contenido -->
+            <input type="hidden" id="contentId" value="" />
+            <input
+              type="text"
+              id="contentTitle"
+              placeholder="Título del Contenido"
+            />
+            <textarea
+              id="contentDescription"
+              placeholder="Descripción"
+            ></textarea>
+            <button onclick="saveContent()">Guardar Contenido</button>
+            <button onclick="cancelContentEdit()" type="button">
+              Cancelar
+            </button>
+          </div>
+          <div id="contentList">
+            <!-- Lista de contenido -->
+          </div>
+        </div>
+      </div>
+      <div id="reports">
+        <h2>Reportes</h2>
+        <!-- Aquí irían los componentes para ver reportes -->
+      </div>
+      <div id="settings">
+        <h2>Configuraciones</h2>
+        <!-- Aquí irían los componentes para modificar configuraciones -->
+      </div>
       <button onclick="logout()">Cerrar sesión</button>
     </div>
     <script src="js/admin.js"></script>
+    <script src="js/crud.js"></script>
   </body>
 </html>
