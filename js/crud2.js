@@ -10,19 +10,19 @@ function displayViewerContents() {
   contentList.innerHTML = ""; // Limpiar la lista antes de agregar contenido nuevo
 
   Object.keys(localStorage).forEach(function (key) {
-    try {
-      var content = JSON.parse(localStorage.getItem(key));
-      // Asegúrate de que es contenido adecuado para mostrar
-      if (content && content.title && content.description) {
+    if (key.startsWith("content-")) {
+      // Solo mostrar contenido con el prefijo "content-"
+      try {
+        var content = JSON.parse(localStorage.getItem(key));
         var contentElement = document.createElement("div");
         contentElement.innerHTML = `
-                    <h3>${content.title}</h3>
-                    <p>${content.description}</p>
-                `;
+          <h3>${content.title}</h3>
+          <p>${content.description}</p>
+        `;
         contentList.appendChild(contentElement);
+      } catch (e) {
+        console.error("Error parsing content from localStorage", e);
       }
-    } catch (e) {
-      console.error("Error parsing content from localStorage", e);
     }
   });
 }
@@ -41,16 +41,16 @@ function displayUserData() {
 }
 function displayProductInfo() {
   var productsInfo = document.getElementById("viewInformation");
-  productsInfo.innerHTML = ""; // Asegurarse de que el elemento esté vacío antes de agregar contenido nuevo
+  productsInfo.innerHTML = ""; // Limpiar antes de agregar nuevos elementos
 
   Object.keys(localStorage).forEach(function (key) {
-    if (key.startsWith("product-")) {
-      var product = JSON.parse(localStorage.getItem(key));
+    if (key.startsWith("content-")) {
+      var content = JSON.parse(localStorage.getItem(key));
       var productElement = document.createElement("div");
       productElement.innerHTML = `
-                <h3>${product.name}</h3>
-                <p>${product.description}</p>
-                <p>Precio: ${product.price}</p>
+                <h3>${content.title}</h3>
+                <p>${content.description}</p>
+                <!-- Puedes añadir más detalles como precio si están disponibles -->
             `;
       productsInfo.appendChild(productElement);
     }

@@ -90,7 +90,7 @@ function saveContent() {
   var description = document.getElementById("contentDescription").value;
 
   var isNewContent = !contentId;
-  contentId = contentId || new Date().getTime().toString();
+  contentId = contentId || "content-" + new Date().getTime().toString(); // Agregar prefijo "content-"
 
   var content = {
     id: contentId,
@@ -98,7 +98,7 @@ function saveContent() {
     description: description,
   };
 
-  localStorage.setItem(content.id, JSON.stringify(content));
+  localStorage.setItem(contentId, JSON.stringify(content)); // Guardar usando el ID con prefijo
   alert(
     "Contenido " + (isNewContent ? "guardado" : "actualizado") + " con éxito"
   );
