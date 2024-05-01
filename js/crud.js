@@ -78,7 +78,84 @@ function clearForm() {
   document.getElementById("userForm").style.display = "none";
 }
 
-// Initial display of users
+// Funciones para gestionar contenido
+function showCreateContentForm() {
+  document.getElementById("contentForm").style.display = "block";
+  document.getElementById("contentId").value = ""; // Limpiar ID para asegurar que es creación
+}
+
+function saveContent() {
+  var contentId = document.getElementById("contentId").value;
+  var title = document.getElementById("contentTitle").value;
+  var description = document.getElementById("contentDescription").value;
+
+  var isNewContent = !contentId;
+  contentId = contentId || new Date().getTime().toString();
+
+  var content = {
+    id: contentId,
+    title: title,
+    description: description,
+  };
+
+  localStorage.setItem(content.id, JSON.stringify(content));
+  alert(
+    "Contenido " + (isNewContent ? "guardado" : "actualizado") + " con éxito"
+  );
+  clearContentForm();
+  displayContents();
+}
+
+function displayContents() {
+  var contentList = document.getElementById("contentList");
+  contentList.innerHTML = ""; // Limpiar cualquier contenido existente primero
+
+  Object.keys(localStorage).forEach(function (key) {
+    try {
+      var content = JSON.parse(localStorage.getItem(key));
+      // Asegurarnos de que estamos mostrando solo contenido, podría necesitar una mejor forma de filtrar
+      if (content && content.title && content.description) {
+        var contentElement = document.createElement("div");
+        contentElement.innerHTML = `
+                    <h3>${content.title}</h3>
+                    <p>${content.description}</p>
+                    <button onclick='editContent("${content.id}")'>Editar</button>
+                    <button onclick='deleteContent("${content.id}")'>Eliminar</button>
+                `;
+        contentList.appendChild(contentElement);
+      }
+    } catch (e) {
+      console.error("Error parsing content from localStorage", e);
+    }
+  });
+}
+
+function editContent(id) {
+  var content = JSON.parse(localStorage.getItem(id));
+  document.getElementById("contentId").value = content.id;
+  document.getElementById("contentTitle").value = content.title;
+  document.getElementById("contentDescription").value = content.description;
+  showCreateContentForm();
+}
+
+function deleteContent(id) {
+  localStorage.removeItem(id);
+  alert("Contenido eliminado");
+  displayContents();
+}
+
+function clearContentForm() {
+  document.getElementById("contentForm").style.display = "none";
+  document.getElementById("contentId").value = ""; // Asegurarse de limpiar el ID
+  document.getElementById("contentTitle").value = "";
+  document.getElementById("contentDescription").value = "";
+}
+function cancelContentEdit() {
+  clearContentForm();
+}
+
+// Función de carga inicial
 window.onload = function () {
   displayUsers();
+  displayContents();
 };

@@ -7,17 +7,27 @@
     <link rel="stylesheet" href="css/viewer.css" />
   </head>
   <body>
-    <div id="viewerContent" style="display: none">
+    <div id="viewerContent">
       <h1>Bienvenido al Panel de Visualizador</h1>
+      <div id="viewerData">
+        <h2>Mis Datos</h2>
+        <div id="userDataDisplay">
+          <!-- Aquí se mostrarán los datos del usuario -->
+        </div>
+      </div>
+
       <div id="viewInformation">
         <h2>Información de Productos/Servicios</h2>
         <!-- Aquí irían los componentes para visualizar la información -->
       </div>
+
       <div id="basicReports">
         <h2>Reportes Básicos</h2>
         <!-- Aquí irían los componentes para ver reportes básicos -->
       </div>
+      <button onclick="logout()">Cerrar sesión</button>
     </div>
     <script src="js/viewer.js"></script>
+    <script src="js/crud2.js"></script>
   </body>
 </html>
